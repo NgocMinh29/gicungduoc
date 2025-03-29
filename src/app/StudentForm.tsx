@@ -8,20 +8,7 @@ import {
   MenuItem,
   Paper,
 } from '@mui/material';
-
-export type Student = {
-  mssv: string;
-  name: string;
-  dob: string;
-  gender: string;
-  faculty: string;
-  program: string;
-  course: string;
-  address: string;
-  email: string;
-  phone: string;
-  status: string;
-};
+import { Student } from './types';
 
 interface Props {
   form: Student;

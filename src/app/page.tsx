@@ -4,20 +4,7 @@ import React, { useState } from 'react';
 import { Box, Paper, TextField, MenuItem, Stack } from '@mui/material';
 import StudentForm from './StudentForm';
 import StudentTable from './StudentTable';
-
-export type Student = {
-  mssv: string;
-  name: string;
-  dob: string;
-  gender: string;
-  faculty: string;
-  program: string;
-  course: string;
-  address: string;
-  email: string;
-  phone: string;
-  status: string;
-};
+import { Student } from './types';
 
 const statusOptions = ['Tất cả', 'Đang học', 'Đã tốt nghiệp', 'Đã thôi học', 'Tạm dừng học'];
 
@@ -76,18 +63,10 @@ export default function StudentManagerPage() {
   const isValid = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phoneRegex = /^0[0-9]{9}$/;
-    const faculties = [
-      'Khoa Luật',
-      'Khoa Tiếng Anh thương mại',
-      'Khoa Tiếng Nhật',
-      'Khoa Tiếng Pháp',
-    ];
-    const statuses = ['Đang học', 'Đã tốt nghiệp', 'Đã thôi học', 'Tạm dừng học'];
+    
     return (
       emailRegex.test(form.email) &&
-      phoneRegex.test(form.phone) &&
-      faculties.includes(form.faculty) &&
-      statuses.includes(form.status)
+      phoneRegex.test(form.phone) 
     );
   };
 

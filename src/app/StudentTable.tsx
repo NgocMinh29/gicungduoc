@@ -9,7 +9,7 @@ import {
   TableBody,
   Button,
 } from '@mui/material';
-import { Student } from './StudentForm';
+import { Student } from './types';
 
 interface Props {
   students: Student[];
