@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { theme } from "@/theme";
 import "@/theme/global.css";
 import { CssBaseline, ThemeProvider } from "@mui/material";
+import { AuthProvider } from "@/contexts/auth/firebase-context";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,7 +31,9 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <AppRouterCacheProvider options={{ key: "css" }}>
           <CssBaseline />
-          <ThemeProvider theme={theme}>{children}</ThemeProvider>
+          <ThemeProvider theme={theme}>
+            <AuthProvider>{children}</AuthProvider>
+          </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
     </html>
